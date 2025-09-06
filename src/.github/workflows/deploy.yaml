@@ -1,0 +1,46 @@
+name: React App CI/CD 
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+      branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_deply:
+    runs-on: ubuntu-latest
+
+    steps:
+     # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # or your React project's version
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests (optional)
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+      # Step 5: Build React app
+      - name: Build
+        run: npm run build
+
+      # Step 6: Deploy (to GitHub Pages)
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build
