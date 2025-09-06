@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is demo project for React CI/CD pipeline.
+          This is demo project for React CI/CD pipeline app.
         </p>
         <a
           className="App-link"
