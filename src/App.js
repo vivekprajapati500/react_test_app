@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is demo project for React CI/CD pipeline.
+            {process.env.REACT_APP_WELCOME_TEXT || "This is demo project"} for React CI/CD pipeline.
         </p>
         <a
           className="App-link"
