@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: npm run build
         env: 
-          REACT_APP_WELCOME_TEXT: {{ vars.REACT_APP_WELCOME_TEXT }}
+          REACT_APP_WELCOME_TEXT: ${{ vars.REACT_APP_WELCOME_TEXT }}
 
       # Step 6: Deploy (to GitHub Pages)
       - name: Deploy to GitHub Pages
